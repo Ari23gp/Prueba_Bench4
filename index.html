@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Observatorio Competitivo Hotelero</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-icon">OV</span><div><h1>Observatorio</h1><p>Benchmark hotelero</p></div></div>
+    <nav>
+      <a href="#general">Dashboard competencia</a>
+      <a href="#marcas">Dashboards por marca</a>
+      <a href="#mapa">Mapa competitivo</a>
+      <a href="admin.html" class="admin-link">Panel admin</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="hero" id="general">
+      <div>
+        <p class="eyebrow">Inteligencia competitiva</p>
+        <h2>Dashboard general de competencia</h2>
+        <p class="hero-text">Analiza solo a Hilton, Wyndham y Sheraton. Oro Verde queda separado como marca propia.</p>
+      </div>
+      <div class="hero-card"><span>Marca con mayor impacto</span><strong id="topBrand">—</strong><p id="topBrandDetail">Calculando...</p></div>
+    </section>
+
+    <section class="kpi-grid">
+      <article class="kpi-card"><span>Total contenidos</span><strong id="totalPosts">0</strong></article>
+      <article class="kpi-card"><span>Views acumulados</span><strong id="totalViews">0</strong></article>
+      <article class="kpi-card"><span>Categoría más usada</span><strong id="topCategory">—</strong></article>
+      <article class="kpi-card"><span>Formato dominante</span><strong id="topFormat">—</strong></article>
+    </section>
+
+    <section class="grid-2">
+      <article class="panel"><div class="section-title"><h3>Frecuencia mensual</h3><p>Publicaciones por mes y marca.</p></div><canvas id="frequencyChart"></canvas></article>
+      <article class="panel"><div class="section-title"><h3>Impacto por marca</h3><p>Score que combina views e interacciones.</p></div><canvas id="impactChart"></canvas></article>
+    </section>
+
+    <section class="panel">
+      <div class="section-title"><h3>Calendario por día de la semana</h3><p>Patrones de publicación según lunes, martes, miércoles, etc.</p></div>
+      <div id="weekdayTable" class="table-wrap"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title"><h3>Contenidos con mayor impacto</h3><p>Ranking por score de impacto, no solo views. Pueden aparecer reels, posts o carruseles.</p></div>
+      <div class="table-wrap"><table><thead><tr><th>Marca</th><th>Contenido</th><th>Formato</th><th>Categoría</th><th>Views</th><th>Interacciones</th><th>Score</th></tr></thead><tbody id="topPostsTable"></tbody></table></div>
+    </section>
+
+    <section class="panel" id="marcas">
+      <div class="section-title"><h3>Dashboards individuales por marca</h3><p>La misma lógica del dashboard general, aplicada marca por marca.</p></div>
+      <div class="tabs" id="brandTabs"></div>
+      <div class="kpi-grid small">
+        <article class="kpi-card"><span>Total contenidos</span><strong id="brandTotal">0</strong></article>
+        <article class="kpi-card"><span>Views acumulados</span><strong id="brandViews">0</strong></article>
+        <article class="kpi-card"><span>Categoría dominante</span><strong id="brandCategory">—</strong></article>
+        <article class="kpi-card"><span>Formato dominante</span><strong id="brandFormat">—</strong></article>
+      </div>
+      <div class="grid-2">
+        <article class="panel inner"><div class="section-title"><h3>Frecuencia mensual</h3></div><canvas id="brandFrequencyChart"></canvas></article>
+        <article class="panel inner"><div class="section-title"><h3>Categorías</h3></div><canvas id="brandCategoryChart"></canvas></article>
+      </div>
+      <div class="panel inner"><div class="section-title"><h3>Calendario semanal de la marca</h3></div><div id="brandWeekdayTable" class="table-wrap"></div></div>
+      <div class="panel inner"><div class="section-title"><h3>Top contenidos de la marca</h3></div><div class="table-wrap"><table><thead><tr><th>Contenido</th><th>Fecha</th><th>Formato</th><th>Categoría</th><th>Views</th><th>Interacciones</th><th>Score</th></tr></thead><tbody id="brandTopPosts"></tbody></table></div></div>
+    </section>
+
+    <section class="panel" id="mapa">
+      <div class="section-title"><h3>Mapa de posicionamiento competitivo</h3><p>Lectura estratégica del benchmark: promocional vs. experiencial / bajo vs. alto rendimiento.</p></div>
+      <div class="position-map">
+        <span class="axis top">Alto alcance y rendimiento</span><span class="axis bottom">Bajo alcance y rendimiento</span><span class="axis left">Contenido promocional</span><span class="axis right">Contenido experiencial</span>
+        <div class="line-v"></div><div class="line-h"></div>
+        <div class="dot hilton" style="left:63%; bottom:87%;">Hilton</div><div class="dot wyndham" style="left:82%; bottom:72%;">Wyndham</div><div class="dot sheraton" style="left:32%; bottom:33%;">Sheraton</div><div class="dot oro" style="left:75%; bottom:82%;">Oro Verde</div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

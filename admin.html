@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Admin | Observatorio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+  <main class="admin-container">
+    <section id="loginBox" class="login-card">
+      <h1>Panel admin</h1>
+      <p>Ingresa la contraseña para continuar.</p>
+      <input id="passwordInput" type="password" placeholder="Contraseña" autocomplete="off" />
+      <button id="loginBtn" class="button">Entrar</button>
+      <p id="loginMsg" class="status error"></p>
+    </section>
+
+    <section id="adminContent" class="hidden">
+      <div class="admin-header"><div><h1>Alimentar benchmark</h1><p>Agrega publicaciones sin tocar el código.</p></div><a class="button secondary" href="index.html">Ver dashboard</a></div>
+      <section class="panel admin-panel">
+        <form id="postForm">
+          <div class="form-grid">
+            <label>Marca<select id="brand" required><option value="">Seleccionar</option><option>Hilton</option><option>Wyndham</option><option>Sheraton</option><option>Oro Verde</option></select></label>
+            <label>Fecha<input id="date" type="date" required /></label>
+            <label>Formato<select id="format" required><option value="">Seleccionar</option><option>Reel</option><option>Post</option><option>Carrusel</option><option>Story</option></select></label>
+            <label>Categoría<select id="category" required><option value="">Seleccionar</option><option>Gastronomía</option><option>Eventos</option><option>Hospedaje</option><option>Otros</option></select></label>
+            <label class="wide">Nombre del contenido<input id="title" type="text" required /></label>
+            <label class="wide">Descripción / script<textarea id="scriptText"></textarea></label>
+            <div id="metricFields" class="metric-fields wide"></div>
+          </div>
+          <button type="submit" class="button">Guardar publicación</button><p id="status" class="status"></p>
+        </form>
+      </section>
+    </section>
+  </main>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
